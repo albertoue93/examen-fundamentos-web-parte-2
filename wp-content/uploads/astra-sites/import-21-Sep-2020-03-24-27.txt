@@ -461,3 +461,17 @@ Starter Templates - Importing Images for Blog name 'Mi Librería Virtual' (1)
 ---- Processing WordPress Page - for Elementor ---- "69"
 ---- Processing WordPress Page - for Elementor ---- "56"
 ---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
