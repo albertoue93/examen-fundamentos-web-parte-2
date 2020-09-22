@@ -1,0 +1,24 @@
+2020-09-21T03:11:53+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-includes\Requests\Transport\cURL.php en la línea 163
+
+2020-09-21T08:00:15+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-admin\includes\class-wp-filesystem-direct.php en la línea 82
+
+2020-09-21T08:00:59+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-admin\includes\class-wp-filesystem-direct.php en la línea 66
+
+2020-09-21T21:04:23+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-content\plugins\astra-sites\inc\classes\class-astra-sites-page.php en la línea 9
+
+2020-09-21T21:05:06+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-content\themes\astra\inc\core\class-astra-admin-settings.php en la línea 14
+
+2020-09-21T21:08:15+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-admin\includes\class-wp-filesystem-direct.php en la línea 82
+
+2020-09-21T21:08:53+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-admin\includes\class-wp-filesystem-direct.php en la línea 82
+
+2020-09-21T22:21:13+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-admin\includes\class-wp-filesystem-direct.php en la línea 82
+
+2020-09-21T22:28:42+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-content\plugins\astra-sites\inc\classes\class-astra-sites-page.php en la línea 9
+
+2020-09-21T22:29:07+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php en la línea 13
+
+2020-09-21T22:29:21+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-includes\Requests\Transport\cURL.php en la línea 163
+
+2020-09-21T22:29:30+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-admin\includes\template.php en la línea 12
+
