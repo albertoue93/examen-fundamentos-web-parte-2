@@ -548,3 +548,222 @@ Starter Templates - Importing Images for Blog name 'Mi Librería Virtual' (1)
 ---- Processing WordPress Page - for Elementor ---- "97"
 ---- Processing WordPress Page - for Elementor ---- "15"
 ---- Processing WordPress Page - for Elementor ---- "96"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing WordPress Page - for Elementor ---- "3977"
+---- Processing WordPress Page - for Elementor ---- "3976"
+---- Processing WordPress Page - for Elementor ---- "3193"
+---- Processing WordPress Page - for Elementor ---- "3190"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing Images from Widgets -----
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing WordPress Page - for Elementor ---- "3977"
+---- Processing WordPress Page - for Elementor ---- "3976"
+---- Processing WordPress Page - for Elementor ---- "3193"
+---- Processing WordPress Page - for Elementor ---- "3190"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing WordPress Page - for Elementor ---- "3977"
+---- Processing WordPress Page - for Elementor ---- "3976"
+---- Processing WordPress Page - for Elementor ---- "3193"
+---- Processing WordPress Page - for Elementor ---- "3190"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing WordPress Page - for Elementor ---- "3977"
+---- Processing WordPress Page - for Elementor ---- "3976"
+---- Processing WordPress Page - for Elementor ---- "3193"
+---- Processing WordPress Page - for Elementor ---- "3190"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing WordPress Page - for Elementor ---- "3977"
+---- Processing WordPress Page - for Elementor ---- "3976"
+---- Processing WordPress Page - for Elementor ---- "3193"
+---- Processing WordPress Page - for Elementor ---- "3190"
+---- Processing WordPress Page - for Elementor ---- "3975"
+---- Processing WordPress Page - for Elementor ---- "3049"
+---- Processing WordPress Page - for Elementor ---- "2530"
+---- Processing WordPress Page - for Elementor ---- "3972"
+---- Processing WordPress Page - for Elementor ---- "401"
+---- Processing WordPress Page - for Elementor ---- "99"
+---- Processing WordPress Page - for Elementor ---- "97"
+---- Processing WordPress Page - for Elementor ---- "15"
+---- Processing WordPress Page - for Elementor ---- "96"
+---- Processing WordPress Page - for Elementor ---- "95"
+---- Processing Images from Widgets -----
+---- Processing WordPress Posts / Pages - for "Gutenberg" ----
+---- Processing WordPress Page - for Gutenberg ---- "98"
+---- Processing WordPress Posts / Pages - for Elementor ----
+---- Processing WordPress Page - for Elementor ---- "3919"
+---- Processing WordPress Page - for Elementor ---- "3917"
+---- Processing WordPress Page - for Elementor ---- "82"
+---- Processing WordPress Page - for Elementor ---- "80"
+---- Processing WordPress Page - for Elementor ---- "77"
+---- Processing WordPress Page - for Elementor ---- "75"
+---- Processing WordPress Page - for Elementor ---- "71"
+---- Processing WordPress Page - for Elementor ---- "69"
+---- Processing WordPress Page - for Elementor ---- "56"
+---- Processing WordPress Page - for Elementor ---- "3196"
+---- Processing WordPress Page - for Elementor ---- "3977"
+---- Processing WordPress Page - for Elementor ---- "3976"
+---- Processing WordPress Page - for Elementor ---- "3193"
+---- Processing WordPress Page - for Elementor ---- "3190"
+---- Processing WordPress Page - for Elementor ---- "3975"
+---- Processing WordPress Page - for Elementor ---- "3049"
+---- Processing WordPress Page - for Elementor ---- "2530"
+---- Processing WordPress Page - for Elementor ---- "3972"
+---- Processing WordPress Page - for Elementor ---- "401"
+---- Processing WordPress Page - for Elementor ---- "99"
+---- Processing WordPress Page - for Elementor ---- "97"
+---- Processing WordPress Page - for Elementor ---- "15"
+---- Processing WordPress Page - for Elementor ---- "96"
+---- Processing WordPress Page - for Elementor ---- "95"
+---- Processing MISC ----
+Post ID: 4276
+Post ID: 4219
+Post ID: 4182
+Post ID: 3810
+Post ID: 3809
+Post ID: 3808
+Post ID: 3807
+Post ID: 3805
+Post ID: 3978
+Post ID: 3693
+Batch Process Complete!
