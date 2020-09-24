@@ -131,8 +131,16 @@
 							<label for="the_champ_login_line"><?php _e("Line", 'super-socializer'); ?></label>
 							</div>
 							<div class="theChampHorizontalSharingProviderContainer">
+							<input id="the_champ_login_wordpress" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('wordpress', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="wordpress" />
+							<label for="the_champ_login_wordpress"><?php _e("Wordpress", 'super-socializer'); ?></label>
+							</div>
+							<div class="theChampHorizontalSharingProviderContainer">
 							<input id="the_champ_login_live" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('microsoft', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="microsoft" />
 							<label for="the_champ_login_live"><?php _e("Windows Live", 'super-socializer'); ?></label>
+							</div>
+							<div class="theChampHorizontalSharingProviderContainer">
+							<input id="the_champ_login_yahoo" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('yahoo', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="yahoo" />
+							<label for="the_champ_login_yahoo"><?php _e("Yahoo", 'super-socializer'); ?></label>
 							</div>
 							</td>
 						</tr>
@@ -444,7 +452,47 @@
 							</div>
 							</td>
 						</tr>
+						<!-- wordpress -->
+						<tr>
+							<th>
+							<label for="the_champ_sl_wordpress_key"><?php _e("Wordpress Client ID", 'super-socializer'); ?></label><img id="the_champ_sl_wordpress_key_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							</th>
+							<td>
+							<input id="the_champ_sl_wordpress_key" name="the_champ_login[wordpress_client_id]" type="text" value="<?php echo isset($theChampLoginOptions['wordpress_client_id']) ? $theChampLoginOptions['wordpress_client_id'] : '' ?>" />
+							</td>
+						</tr>
+						<tr class="the_champ_help_content" id="the_champ_sl_wordpress_key_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Required for Wordpress Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Wordpress Client ID', 'super-socializer'), 'http://support.heateor.com/get-wordpress-client-id-client-secret') ?>
+							<br/>
+							<span style="color:#14ACDF"><?php _e('Paste following url in <strong>Callback URL</strong> option mentioned at the link', 'super-socializer'); ?></span>
+							<br/>
+							<strong style="color:#14ACDF"><?php echo esc_url(home_url()).'/SuperSocializerAuth/Wordpress'; ?></strong>
+							</div>
+							</td>
+						</tr>
 
+						<tr>
+							<th>
+							<label for="the_champ_sl_wordpress_secret"><?php _e("Wordpress Client Secret", 'super-socializer'); ?></label><img id="the_champ_sl_wordpress_secret_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							</th>
+							<td>
+							<input id="the_champ_sl_wordpress_secret" name="the_champ_login[wordpress_client_secret]" type="text" value="<?php echo isset($theChampLoginOptions['wordpress_client_secret']) ? $theChampLoginOptions['wordpress_client_secret'] : '' ?>" />
+							</td>
+						</tr>
+						<tr class="the_champ_help_content" id="the_champ_sl_wordpress_secret_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Required for Wordpress Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Wordpress Client Secret', 'super-socializer'), 'http://support.heateor.com/get-wordpress-client-id-client-secret') ?>
+							<br/>
+							<span style="color:#14ACDF"><?php _e('Paste following url in <strong>Callback URL</strong> option mentioned at the link', 'super-socializer'); ?></span>
+							<br/>
+							<strong style="color:#14ACDF"><?php echo esc_url(home_url()).'/SuperSocializerAuth/Wordpress'; ?></strong>
+							</div>
+							</td>
+						</tr>
+						<!-- end of WordPress -->
 						<tr>
 							<th>
 							<label for="the_champ_sl_live_key"><?php _e("Microsoft Client ID", 'super-socializer'); ?></label><img id="the_champ_sl_live_key_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
@@ -501,6 +549,48 @@
 							</div>
 							</td>
 						</tr>
+
+						<!-- yahoo -->
+						<tr>
+							<th>
+							<label for="the_champ_yahoo_key"><?php _e("Yahoo Client ID", 'super-socializer'); ?><img id="the_champ_yahoo_key_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" /></label>
+							</th>
+							<td>
+							<input id="the_champ_yahoo_key" name="the_champ_login[yahoo_channel_id]" type="text" value="<?php echo isset($theChampLoginOptions['yahoo_channel_id']) ? $theChampLoginOptions['yahoo_channel_id'] : '' ?>" />
+							</td>
+						</tr>
+						<tr class="the_champ_help_content" id="the_champ_yahoo_key_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Required for Yahoo Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Yahoo Client ID', 'super-socializer'), 'http://support.heateor.com/get-yahoo-client-id-client-secret') ?>
+							<br/>
+							<span style="color:#14ACDF"><?php _e('Paste following url in <strong>Redirect URIs</strong> option mentioned at the link', 'super-socializer'); ?></span>
+							<br/>
+							<strong style="color:#14ACDF"><?php echo esc_url(home_url()).'/SuperSocializerAuth/Yahoo'; ?></strong>
+							</div>
+							</td>
+						</tr>
+
+						<tr>
+							<th>
+							<label for="the_champ_yahoo_secret"><?php _e("Yahoo Client Secret", 'super-socializer'); ?><img id="the_champ_yahoo_secret_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" /></label>
+							</th>
+							<td>
+							<input id="the_champ_yahoo_secret" name="the_champ_login[yahoo_channel_secret]" type="text" value="<?php echo isset($theChampLoginOptions['yahoo_channel_secret']) ? $theChampLoginOptions['yahoo_channel_secret'] : '' ?>" />
+							</td>
+						</tr>
+						<tr class="the_champ_help_content" id="the_champ_yahoo_secret_help_cont">
+							<td colspan="2">
+							<div>
+							<?php echo sprintf(__('Required for Yahoo Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get Yahoo Client Secret key', 'super-socializer'), 'http://support.heateor.com/get-yahoo-client-id-client-secret') ?>
+							<br/>
+							<span style="color:#14ACDF"><?php _e('Paste following url in <strong>Redirect URIs</strong> option mentioned at the link', 'super-socializer'); ?></span>
+							<br/>
+							<strong style="color:#14ACDF"><?php echo esc_url(home_url()).'/SuperSocializerAuth/Yahoo'; ?></strong>
+							</div>
+							</td>
+						</tr>
+						<!-- end of yahoo -->
 					</table>
 					</div>
 				</div>
@@ -1187,27 +1277,27 @@
 					<div class="inside">
 					<?php
 					global $wpdb;
-					$xprofileFields = $wpdb -> get_results("SELECT * FROM " . $wpdb -> prefix . "bp_xprofile_fields");
+					$xprofileFields = $wpdb-> get_results("SELECT * FROM " . $wpdb-> prefix . "bp_xprofile_fields");
 					if($xprofileFields){
 						?>
 						<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
 						<?php
 						foreach($xprofileFields as $field){
-							if($field -> id == 1){
+							if($field-> id == 1){
 								continue;
 							}	
 							?>
 							<tr>
 								<td>
-									<label><?php _e($field -> name, 'super-socializer'); ?></label>
+									<label><?php _e($field-> name, 'super-socializer'); ?></label>
 								</td>
 								<td>
-									<select name="the_champ_login[xprofile_mapping][<?php echo $field -> name ?>]">
+									<select name="the_champ_login[xprofile_mapping][<?php echo $field-> name ?>]">
 										<option value="">--<?php _e('Select', 'super-socializer') ?>--</option>
 										<?php
 										foreach($profileFields as $key => $val){
 											?>
-											<option <?php echo isset($theChampLoginOptions['xprofile_mapping'][$field -> name]) && $theChampLoginOptions['xprofile_mapping'][$field -> name] == $val ? 'selected' : '' ?> value="<?php echo $val ?>"><?php echo ucfirst($key) ?></option>
+											<option <?php echo isset($theChampLoginOptions['xprofile_mapping'][$field-> name]) && $theChampLoginOptions['xprofile_mapping'][$field-> name] == $val ? 'selected' : '' ?> value="<?php echo $val ?>"><?php echo ucfirst($key) ?></option>
 											<?php
 										}
 										?>

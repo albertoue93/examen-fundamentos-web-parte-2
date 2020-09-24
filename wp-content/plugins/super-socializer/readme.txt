@@ -1,10 +1,10 @@
 ﻿=== WordPress Social Share, Social Login and Social Comments Plugin - Super Socializer ===
 Contributors: Heateor, farhan8heateor, jatin8heateor, the_champ, Hungarian Translator: László Tavaszi http://kerekmese.hu, Chinese Translator: CalmSmile calmsmile.org, Portuguese Translator: Paulo Purkyt https://www.linkedin.com/in/ppurkyt, Italian Translator: FG3D (Freedom's Gate) https://fg3d.net, Spanish translator: Ignacio Iglesias http://trespies.com, Arabic Translator: http://www.ArabsSM.com, Russian/Ukrainian Translator: Nicholas Lagunov
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
-Tags: social login, social share, line login, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media follow, facebook login, Windows Live Login, Microsoft Login
+Tags: social login, social share, line login, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media follow, facebook login, Windows Live Login, Microsoft Login, Wordpress login, Yahoo login
 Requires at least: 2.5.0
-Tested up to: 5.5
-Stable tag: 7.12.50
+Tested up to: 5.5.1
+Stable tag: 7.13
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -15,8 +15,9 @@ Integrate Social Login, Social Share and Social Comments at your website easiest
 **Note:**
 1. Plugin will not work on local server. You should have an online website for the plugin to function properly.
 2. If you want to integrate only Facebook Login button, you should install <a target="_blank" href="https://wordpress.org/plugins/heateor-login/">Heateor Login</a>
-3. If you want to integrate only Facebook Comments, you should install <a target="_blank" href="https://wordpress.org/plugins/fancy-facebook-comments/">Fancy Comments</a>
-4. If you want to integrate only Social Share, you should install <a target="_blank" href="https://wordpress.org/plugins/sassy-social-share">Sassy Social Share</a>
+3. If you want to integrate only Social Login buttons, you should install <a target="_blank" href="https://wordpress.org/plugins/heateor-social-login/">Heateor Social Login</a>
+4. If you want to integrate only Facebook Comments, you should install <a target="_blank" href="https://wordpress.org/plugins/fancy-facebook-comments/">Fancy Comments</a>
+5. If you want to integrate only Social Share, you should install <a target="_blank" href="https://wordpress.org/plugins/sassy-social-share">Sassy Social Share</a>
 
 = Feature list =
 * GDPR Compliant
@@ -42,7 +43,7 @@ Integrate Social Login, Social Share and Social Comments at your website easiest
 * Mobile responsive sharing interface
 * Compatible with AMP
 * Enable/Disable vertical/floating sharing interface on mobile device
-* Social Login from 7 Social Networks - Facebook, Google, Linkedin, Twitter, Vkontakte, Line, Windows Live (Microsoft) and Steam
+* Social Login from 7 Social Networks - Facebook, Google, Linkedin, Twitter, Vkontakte, Line, Windows Live (Microsoft), Yahoo, WordPress and Steam
 * Enable Social Login interface at WordPress Login, Register pages and comment form
 * Syncs user's basic social profile data with WordPress profile
 * Enable Social Login at WooCommerce checkout page and customer login form
@@ -211,6 +212,11 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.13 [23 September 2020] =
+[New] Added WordPress and Yahoo in the social login networks
+[Improvement] Usernames for BuddyPress have now firstname-lastname format instead of just firstname
+[Improvement] Code improvement
+
 = 7.12.50 [20 August 2020] =
 [Improvement] Admin UI improvements
 
@@ -2094,3 +2100,8 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.12.50 [20 August 2020] =
 [Improvement] Admin UI improvements
+
+= 7.13 [23 September 2020] =
+[New] Added WordPress and Yahoo in the social login networks
+[Improvement] Usernames for BuddyPress have now firstname-lastname format instead of just firstname
+[Improvement] Code improvement

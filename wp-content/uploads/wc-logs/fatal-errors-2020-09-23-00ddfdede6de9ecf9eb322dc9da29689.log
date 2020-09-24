@@ -1,0 +1,12 @@
+2020-09-23T19:02:12+00:00 CRITICAL Maximum execution time of 30 seconds exceeded en C:\xampp\htdocs\wordpress\wp-content\plugins\facebook-for-woocommerce\includes\Admin\Settings_Screens\Messenger.php en la línea 13
+
+2020-09-23T20:46:28+00:00 CRITICAL Maximum execution time of 300 seconds exceeded en C:\xampp\htdocs\wordpress\wp-includes\Requests\Transport\cURL.php en la línea 163
+
+2020-09-23T21:24:33+00:00 CRITICAL Maximum execution time of 300 seconds exceeded en C:\xampp\htdocs\wordpress\wp-includes\wp-db.php en la línea 2033
+
+2020-09-23T21:39:20+00:00 CRITICAL Maximum execution time of 300 seconds exceeded en C:\xampp\htdocs\wordpress\wp-includes\Requests\Transport\cURL.php en la línea 163
+
+2020-09-23T23:02:31+00:00 CRITICAL Maximum execution time of 300 seconds exceeded en C:\xampp\htdocs\wordpress\wp-includes\Requests\Transport\cURL.php en la línea 163
+
+2020-09-23T23:51:10+00:00 CRITICAL Maximum execution time of 300 seconds exceeded en C:\xampp\htdocs\wordpress\wp-includes\Requests\Transport\cURL.php en la línea 163
+

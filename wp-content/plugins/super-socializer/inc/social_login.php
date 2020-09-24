@@ -216,6 +216,21 @@ function the_champ_create_user($profileData, $verification = false){
 		'user_url' => $profileData['provider'] != 'facebook' && isset($profileData['link']) && $profileData['link'] != '' ? $profileData['link'] : '',
 		'role' => get_option('default_role')
 	);
+	if(heateor_ss_is_plugin_active('buddypress/bp-loader.php')){
+		$userdata = array(
+			'user_login' => $username,
+			'user_pass' => $password,
+			'user_nicename' => $username,
+			'user_email' => $profileData['email'],
+			'display_name' => $profileData['name'],
+			'nickname' => $username,
+			'first_name' => $firstName,
+			'last_name' => $lastName,
+			'description' => isset($profileData['bio']) && $profileData['bio'] != '' ? $profileData['bio'] : '',
+			'user_url' => $profileData['provider'] != 'facebook' && isset($profileData['link']) && $profileData['link'] != '' ? $profileData['link'] : '',
+			'role' => get_option('default_role')
+		);
+	}
 	if(heateor_ss_is_plugin_active('theme-my-login/theme-my-login.php')){
 		$tmlOptions = get_option('theme_my_login');
 		$tmlLoginType = isset($tmlOptions['login_type']) ? $tmlOptions['login_type'] : '';
@@ -461,7 +476,7 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['first_name'] = isset($profileData->givenName) ? $profileData->givenName : '';
 		$temp['last_name'] = isset($profileData->familyName) ? $profileData->familyName : '';
 		$temp['bio'] = '';
-		$temp['link'] = isset($profileData->link) ? $profileData->link : '';
+		$temp['link'] = isset($profileData->link) && heateor_ss_validate_url(trim($profileData->link)) !== false ? trim($profileData->link) : '';
 		$temp['large_avatar'] = isset($profileData->picture) && heateor_ss_validate_url($profileData->picture) !== false ? trim($profileData->picture) : '';
 		$temp['avatar'] = $temp['large_avatar'] != '' ? $temp['large_avatar'] . '?sz=50' : '';
 	}elseif($provider == 'vkontakte'){
@@ -492,14 +507,14 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['bio'] = '';
 		$temp['username'] = $profileData->displayName;
 		$temp['link'] = '';
-		$temp['avatar'] =  isset($profileData ->pictureUrl) && heateor_ss_validate_url($profileData ->pictureUrl) !== false ? trim($profileData ->pictureUrl) : '';
+		$temp['avatar'] =  isset($profileData->pictureUrl) && heateor_ss_validate_url($profileData->pictureUrl) !== false ? trim($profileData->pictureUrl) : '';
 		$temp['name'] = $profileData->displayName;
 		$temp['first_name'] = $profileData->displayName;
 		$temp['last_name'] = '';
 		$temp['id'] = isset($profileData->userId) ? sanitize_text_field($profileData->userId) : '';
 		$temp['large_avatar'] = '';
 	}elseif($provider == 'microsoft'){
-		$temp['email'] = $profileData->emails->account;
+		$temp['email'] = isset($profileData->emails->account) ? sanitize_email(trim($profileData->emails->account)) : '';
 		$temp['bio'] = '';
 		$temp['username'] = '';
 		$temp['link'] = '';
@@ -509,6 +524,36 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['last_name'] = isset($profileData->last_name) ? sanitize_text_field($profileData->last_name) : '';
 		$temp['id'] = isset($profileData->id) ? sanitize_text_field($profileData->id) : '';
 		$temp['large_avatar'] = '';
+	}elseif($provider == 'wordpress'){
+		if(isset($profileData->email_verified) && $profileData->email_verified == 1 && !empty($profileData->email)){
+			$temp['email'] = sanitize_email(trim($profileData->email));
+		}else{
+			$temp['email'] = '';
+		}
+		$temp['bio'] = '';
+		$temp['username'] = isset($profileData->username) ? sanitize_text_field($profileData->username) : '';
+		$temp['link'] = isset($profileData->primary_blog_url) && heateor_ss_validate_url($profileData->primary_blog_url) !== false ? trim($profileData->primary_blog_url) : '';
+		$temp['avatar'] = isset($profileData->avatar_URL) && heateor_ss_validate_url($profileData->avatar_URL) !== false ? trim($profileData->avatar_URL) : '';
+		$temp['name'] = '';
+		$temp['first_name'] = '';
+		$temp['last_name'] = '';
+		$temp['id'] = isset($profileData->ID) ? sanitize_text_field($profileData->ID) : '';
+		$temp['large_avatar'] = '';
+	}elseif($provider == 'yahoo'){
+		if(isset($profileData->email_verified) && $profileData->email_verified == 1 && !empty($profileData->email)){
+			$temp['email'] = sanitize_email(trim($profileData->email));
+		}else{
+			$temp['email'] = '';
+		}
+		$temp['bio'] = '';
+		$temp['username'] = isset($profileData->nickname) ? sanitize_text_field($profileData->nickname) : '';
+		$temp['link'] = '';
+		$temp['name'] =  isset($profileData->name) ? sanitize_text_field($profileData->name) : '';
+		$temp['first_name'] = isset($profileData->given_name) ? sanitize_text_field($profileData->given_name) : '';
+		$temp['last_name'] = isset($profileData->family_name) ? sanitize_text_field($profileData->family_name) : '';
+		$temp['id'] = isset($profileData->sub) ? sanitize_text_field($profileData->sub) : '';
+		$temp['large_avatar'] = isset($profileData->profile_images->image192) && heateor_ss_validate_url($profileData->profile_images->image192) !== false ? trim($profileData->profile_images->image192) : '';
+		$temp['avatar'] = isset($profileData->profile_images->image64) && heateor_ss_validate_url($profileData->profile_images->image64) !== false ? trim($profileData->profile_images->image64) : '';
 	}
 	if($provider != 'steam'){
 		$temp['avatar'] = str_replace('http://', '//', $temp['avatar']);

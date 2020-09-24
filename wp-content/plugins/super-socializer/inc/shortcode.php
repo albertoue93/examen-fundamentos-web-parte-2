@@ -43,10 +43,10 @@ function the_champ_sharing_shortcode($params){
 			$postId = 0;
 		}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 			$targetUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]));
-			$postId = $post -> ID;
-		}elseif(get_permalink($post -> ID)){
-			$targetUrl = get_permalink($post -> ID);
-			$postId = $post -> ID;
+			$postId = $post-> ID;
+		}elseif(get_permalink($post-> ID)){
+			$targetUrl = get_permalink($post-> ID);
+			$postId = $post-> ID;
 		}else{
 			$targetUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]));
 			$postId = 0;
@@ -142,10 +142,10 @@ function the_champ_counter_shortcode($params){
 			$postId = 0;
 		}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 			$targetUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
-			$postId = $post -> ID;
-		}elseif(get_permalink($post -> ID)){
-			$targetUrl = get_permalink($post -> ID);
-			$postId = $post -> ID;
+			$postId = $post-> ID;
+		}elseif(get_permalink($post-> ID)){
+			$targetUrl = get_permalink($post-> ID);
+			$postId = $post-> ID;
 		}else{
 			$targetUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 			$postId = 0;
@@ -209,8 +209,8 @@ function the_champ_login_shortcode($params){
 			$html = "<div style='height:80px;width:180px'><div style='width:63px;float:left;'>";
 			$html .= @get_avatar($user_ID, 60, $default, $alt);
 			$html .= "</div><div style='float:left; margin-left:10px'>";
-			$html .= str_replace('-', ' ', $userInfo -> user_login);
-			//do_action('the_champ_login_widget_hook', $userInfo -> user_login);
+			$html .= str_replace('-', ' ', $userInfo-> user_login);
+			//do_action('the_champ_login_widget_hook', $userInfo-> user_login);
 			$html .= '<br/><a href="' . wp_logout_url(esc_url(home_url())) . '">' .__('Log Out', 'super-socializer') . '</a></div></div>';
 		}else{
 			$html = '<div ';

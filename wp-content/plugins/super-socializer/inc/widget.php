@@ -42,8 +42,8 @@ class TheChampLoginWidget extends WP_Widget {
 			echo "<div style='height:80px;width:180px'><div style='width:63px;float:left;'>";
 			echo @get_avatar($user_ID, 60, '', '');
 			echo "</div><div style='float:left; margin-left:10px'>";
-			echo str_replace('-', ' ', $userInfo -> user_login);
-			do_action('the_champ_login_widget_hook', $userInfo -> user_login);
+			echo str_replace('-', ' ', $userInfo-> user_login);
+			do_action('the_champ_login_widget_hook', $userInfo-> user_login);
 			echo '<br/><a href="' . wp_logout_url(esc_url(home_url())) . '">' .__('Log Out', 'super-socializer') . '</a></div></div>';
 		}
 		echo '<div style="clear:both"></div>';
@@ -142,7 +142,7 @@ class TheChampSharingWidget extends WP_Widget {
 					$postId = 0;
 				}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 					$sharingUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
-				}elseif(get_permalink($post -> ID)){
+				}elseif(get_permalink($post-> ID)){
 					$sharingUrl = get_permalink($post->ID);
 				}
 			}elseif($instance['target_url'] == 'homepage'){
@@ -320,7 +320,7 @@ class TheChampVerticalSharingWidget extends WP_Widget {
 					$postId = 0;
 				}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 					$sharingUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
-				}elseif(get_permalink($post -> ID)){
+				}elseif(get_permalink($post-> ID)){
 					$sharingUrl = get_permalink($post->ID);
 				}
 			}elseif($instance['target_url'] == 'homepage'){
@@ -494,7 +494,7 @@ class TheChampCounterWidget extends WP_Widget {
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		
 		global $theChampCounterOptions, $post;
-		$postId = $post -> ID;
+		$postId = $post-> ID;
 		$customUrl = apply_filters('heateor_ss_custom_share_url', '', $post);
 		if($customUrl){
 			$sharingUrl = $customUrl;
@@ -510,7 +510,7 @@ class TheChampCounterWidget extends WP_Widget {
 					$postId = 0;
 				}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 					$counterUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
-				}elseif(get_permalink($post -> ID)){
+				}elseif(get_permalink($post-> ID)){
 					$counterUrl = get_permalink($post->ID);
 				}
 			}elseif($instance['target_url'] == 'homepage'){
@@ -642,7 +642,7 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 		if($instance['hide_for_logged_in']==1 && is_user_logged_in()) return;
 		
 		global $theChampCounterOptions, $post;
-		$postId = $post -> ID;
+		$postId = $post-> ID;
 		$customUrl = apply_filters('heateor_ss_custom_share_url', '', $post);
 		if($customUrl){
 			$sharingUrl = $customUrl;
@@ -658,7 +658,7 @@ class TheChampVerticalCounterWidget extends WP_Widget {
 					$postId = 0;
 				}elseif(isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']){
 					$counterUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
-				}elseif(get_permalink($post -> ID)){
+				}elseif(get_permalink($post-> ID)){
 					$counterUrl = get_permalink($post->ID);
 				}
 			}elseif($instance['target_url'] == 'homepage'){
