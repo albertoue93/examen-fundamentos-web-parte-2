@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 //functions needed for the email-confirmation on single-sites (to create the "_signups" table)
 function wppb_signup_schema( $oldVal, $newVal ){
 	// Declare these as global in case schema.php is included from a function.

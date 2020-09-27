@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Function that creates the "Show/Hide the Admin Bar on the Front-End" submenu page
  *

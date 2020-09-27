@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 class Profile_Builder_Form_Creator{
 	private $defaults = array(
 							'form_type' 			=> '',
@@ -271,7 +273,7 @@ class Profile_Builder_Form_Creator{
 
 		ob_start();
 
-		if( isset( $_REQUEST['action'] ) && $_REQUEST['form_name'] == $this->args['form_name'] ) {
+		if( isset( $_REQUEST['action'] ) && $_REQUEST['form_name'] === $this->args['form_name'] ) {
             if( ! isset( $_POST[$this->args['form_type'].'_'. $this->args['form_name'] .'_nonce_field'] ) || ! wp_verify_nonce( $_POST[$this->args['form_type'].'_'. $this->args['form_name'] .'_nonce_field'], 'wppb_verify_form_submission' ) ) {
                 echo '<span class="wppb-form-error wppb-error">'. esc_html(__( 'You are not allowed to do this.', 'profile-builder' )) . '</span>';
                 return;
@@ -287,7 +289,7 @@ class Profile_Builder_Form_Creator{
 				// we only have a $user_id on default registration (no email confirmation, no multisite)
 				$user_id = $this->wppb_save_form_values( $_REQUEST );
 
-				if( ( 'POST' == $_SERVER['REQUEST_METHOD'] ) && ( $_POST['action'] == $this->args['form_type'] ) ) {
+				if( ( 'POST' == $_SERVER['REQUEST_METHOD'] ) && ( $_POST['action'] === $this->args['form_type'] ) ) {
 
                     $form_message_tpl_start = apply_filters( 'wppb_form_message_tpl_start', '<p class="alert wppb-success" id="wppb_form_general_message">' );
                     $form_message_tpl_end = apply_filters( 'wppb_form_message_tpl_end', '</p>' );
@@ -447,13 +449,13 @@ class Profile_Builder_Form_Creator{
 
 				if( isset( $wppb_module_settings['wppb_customRedirect'] ) && $wppb_module_settings['wppb_customRedirect'] == 'show' ) {
                     if( isset( $_POST['wppb_referer_url'] ) )
-                        $referer = $_POST['wppb_referer_url'];
+                        $referer = esc_url( $_POST['wppb_referer_url'] );
                     elseif( isset( $_SERVER['HTTP_REFERER'] ) )
-                        $referer =  $_SERVER['HTTP_REFERER'];
+                        $referer =  esc_url( $_SERVER['HTTP_REFERER'] );
                     else
                         $referer = '';
 
-					echo '<input type="hidden" name="wppb_referer_url" value="'.esc_url( $referer ).'"/>';
+					echo '<input type="hidden" name="wppb_referer_url" value="'. $referer .'"/>';
 				}
 				?>
 			</p><!-- .form-submit -->
@@ -763,12 +765,11 @@ add_action( 'init', 'wppb_autologin_after_registration' );
 function wppb_autologin_after_registration(){
     if( isset( $_GET['autologin'] ) && isset( $_GET['uid'] ) ){
         $uid = absint( $_GET['uid'] );
-        $nonce  = $_REQUEST['_wpnonce'];
 
         $arr_params = array( 'autologin', 'uid', '_wpnonce' );
         $current_page_url = remove_query_arg( $arr_params, wppb_curpageurl() );
 
-        if ( ! ( wp_verify_nonce( $nonce , 'autologin-'.$uid.'-'.(int)( time() / 60 ) ) || wp_verify_nonce( $nonce , 'autologin-'.$uid.'-'.(int)( time() / 60 - 1 ) ) ) ){
+        if ( ! ( wp_verify_nonce( $_REQUEST['_wpnonce'] , 'autologin-'.$uid.'-'.(int)( time() / 60 ) ) || wp_verify_nonce( $_REQUEST['_wpnonce'] , 'autologin-'.$uid.'-'.(int)( time() / 60 - 1 ) ) ) ){
             wp_redirect( $current_page_url );
             exit;
         } else {

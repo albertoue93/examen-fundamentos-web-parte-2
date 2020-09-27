@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Function which returns the same field-format over and over again.
  *
@@ -123,7 +124,7 @@ function wppb_password_check_on_profile_update( $errors, $update, $user ){
 /* on reset password */
 add_action( 'validate_password_reset', 'wppb_password_check_extra_conditions', 10, 2 );
 function wppb_password_check_extra_conditions( $errors, $user ){
-    $password = ( isset( $_POST[ 'pass1' ] ) && trim( $_POST[ 'pass1' ] ) ) ? $_POST[ 'pass1' ] : false;
+    $password = ( isset( $_POST[ 'pass1' ] ) && trim( $_POST[ 'pass1' ] ) ) ? $_POST[ 'pass1' ] : false; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
 
     if( $password ){
         $wppb_generalSettings = get_option( 'wppb_general_settings' );
@@ -157,7 +158,7 @@ function wppb_password_check_extra_conditions( $errors, $user ){
 add_action( 'admin_footer', 'wppb_add_hidden_password_strength_on_backend' );
 add_action( 'login_footer', 'wppb_add_hidden_password_strength_on_backend' );
 function wppb_add_hidden_password_strength_on_backend(){
-    if( $GLOBALS['pagenow'] == 'profile.php' || $GLOBALS['pagenow'] == 'user-new.php' || ( $GLOBALS['pagenow'] == 'wp-login.php' && isset( $_GET['action'] ) && ( $_GET['action'] == 'rp' || $_GET['action'] == 'resetpass' ) ) ){
+    if( $GLOBALS['pagenow'] == 'profile.php' || $GLOBALS['pagenow'] == 'user-new.php' || ( $GLOBALS['pagenow'] == 'wp-login.php' && isset( $_GET['action'] ) && ( $_GET['action'] === 'rp' || $_GET['action'] === 'resetpass' ) ) ){
         $wppb_generalSettings = get_option( 'wppb_general_settings' );
         if( !empty( $wppb_generalSettings['minimum_password_strength'] ) ){
             ?>
@@ -256,7 +257,7 @@ function wppb_add_plugin_notifications() {
     /* this must be unique */
     $notification_id = 'wppb_new_feature_customization_toolbox';
 
-	$message  = '<img style="float: left; margin: 10px 12px 10px 0; max-width: 100px;" src="https://www.cozmoslabs.com/wp-content/themes/cozmiclight/img/pb_addon_small_toolbox.png" alt="Customization Toolbox Add-on"/>';
+	$message  = '<img style="float: left; margin: 10px 12px 10px 0; max-width: 100px;" src="'.WPPB_PLUGIN_URL.'assets/images/pb_addon_small_toolbox.png" alt="Customization Toolbox Add-on"/>';
     $message .= '<p style="margin-top: 16px;">' . __( 'Check out the Customization Toolbox add-on which packs the most popular customization requests from Profile Builder.', 'profile-builder' ) . '</p>';
     // be careful to use wppb_dismiss_admin_notification as query arg
     $message .= '<p><a href="https://www.cozmoslabs.com/add-ons/customization-toolbox/" class="button-primary">' . __( 'See details', 'profile-builder' ) . '</a></p>';
@@ -269,11 +270,11 @@ function wppb_add_plugin_notifications() {
 /* hook to create pages for out forms when a user press the create pages/setup button */
 add_action( 'admin_init', 'wppb_create_form_pages' );
 function wppb_create_form_pages(){
-    if( isset( $_GET['page'] ) && $_GET['page'] == 'profile-builder-basic-info' && isset( $_GET['wppb_create_pages'] ) && $_GET['wppb_create_pages'] == 'true' ){
+    if( isset( $_GET['page'] ) && $_GET['page'] === 'profile-builder-basic-info' && isset( $_GET['wppb_create_pages'] ) && $_GET['wppb_create_pages'] === 'true' ){
 
         $wppb_pages_created = get_option( 'wppb_pages_created' );
 
-        if( empty( $wppb_pages_created ) || ( isset( $_GET['wppb_force_create_pages'] ) && $_GET['wppb_force_create_pages'] == 'true' ) ) {
+        if( empty( $wppb_pages_created ) || ( isset( $_GET['wppb_force_create_pages'] ) && $_GET['wppb_force_create_pages'] === 'true' ) ) {
             $register_page = array(
                 'post_title' => 'Register',
                 'post_content' => '[wppb-register]',

@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class WPPB_Roles_Editor {
 
@@ -297,7 +298,7 @@ class WPPB_Roles_Editor {
             2  => esc_html__( 'Custom field updated.', 'profile-builder' ),
             3  => esc_html__( 'Custom field deleted.', 'profile-builder' ),
             4  => esc_html__( 'Role updated.', 'profile-builder' ),
-            5  => isset( $_GET['revision'] ) ? sprintf( esc_html__( 'Role restored to revision from %s' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+            5  => isset( $_GET['revision'] ) ? sprintf( esc_html__( 'Role restored to revision from %s' ), wp_post_revision_title( (int) sanitize_text_field( $_GET['revision'] ), false ) ) : false,
             6  => esc_html__( 'Role created.', 'profile-builder' ),
             7  => esc_html__( 'Role saved.', 'profile-builder' ),
             8  => esc_html__( 'Role submitted.', 'profile-builder' ),
@@ -578,8 +579,7 @@ class WPPB_Roles_Editor {
         }
 
         if( isset( $_POST['wppb-role-slug-hidden'] ) ) {
-            $role_slug = trim( $_POST['wppb-role-slug-hidden'] );
-            $role_slug = $this->sanitize_role( $role_slug );
+            $role_slug = $this->sanitize_role( trim( $_POST['wppb-role-slug-hidden'] ) );
 
             update_post_meta( $post_id, 'wppb_role_slug', $role_slug );
         }
@@ -918,6 +918,7 @@ class WPPB_Roles_Editor {
         $role = wp_strip_all_tags( $role );
         $role = preg_replace( '/[^a-z0-9_\-\s]/', '', $role );
         $role = str_replace( ' ', '_', $role );
+        $role = sanitize_text_field( $role );
 
         return $role;
 

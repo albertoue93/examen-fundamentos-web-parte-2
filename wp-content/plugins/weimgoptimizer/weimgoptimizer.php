@@ -481,6 +481,10 @@ function oiwe_my_bulk_optimizations_admin_notice() {
 
 <style type="text/css" >
 
+#we-fb-buttons iframe{
+    height: 35px !important;
+}
+
 #XHRMessage {
 	margin: 15px;
 	margin-left:0px;
@@ -879,7 +883,7 @@ function oiwe_my_schedule_function(){
 *	Custom upgrades
 */
 
-
+/*
 function oiwe_check_for_update($transient ) {
 
     if ( empty( $transient->checked ) ) {
@@ -954,3 +958,147 @@ function oiwe_plugins_api_handler($res, $action, $args ) {
     return false;
 }
 
+*/
+
+
+
+
+/*
+*	Custom upgrades
+*/
+
+
+function weimg_plugins_api_result( $res, $action, $args) {
+
+
+   if ( $action == 'plugin_information' ) {
+
+
+        if ( isset( $args->slug ) && $args->slug == plugin_basename( __FILE__ ) ) {
+
+            $info = json_decode(file_get_contents("https://optimizador.io/pluginupdates.json") ) ;
+
+
+
+            $res = (object) array(
+                'name' => $info->name,
+                'version' => $info->version ,
+                'slug' => $args->slug,
+                'download_link' => $info->download_url ,
+
+                'tested' => $info->tested,
+                'requires' => $info->requires,
+                'last_updated' => $info->last_updated,
+                'homepage' => $info->homepage,
+                'sections' => array( 'description' => $info->sections->description, 'installation' => $info->sections->installation , 'changelog' => $info->sections->changelog ) ,
+                'banners' => array(
+                    'low' => $info->banners->low,
+                    'high' => $info->banners->high
+                ),
+
+                'external' => true
+            );
+            //if ( 1 == 2 ) {
+            //    $res['sections']['changelog'] = "Changelog";
+            //}
+            return $res;
+            //return false;
+        }
+    }
+    return $res;
+
+}
+
+add_filter( 'plugins_api_result', 'weimg_plugins_api_result' , 10, 3  );
+
+function weimg_check_for_update($transient ) {
+
+
+    if ( empty( $transient->checked ) ) {
+        return $transient;
+    }
+
+
+
+	if ( !function_exists("plugin_basename") ){
+		return $transient;
+	}
+
+
+	//
+	// Mejor no usamos get_plugin_data para evitar problemas
+	//
+	// $plugin_data = get_plugin_data( __FILE__ );
+	// $plugin_version = $plugin_data['Version'];
+
+	$plugin_version = "1.0.23";
+
+	$salidaTXT = file_get_contents("https://optimizador.io/pluginupdates.json");
+
+
+	$info = json_decode( $salidaTXT ) ;
+
+
+
+	  if (  version_compare( $plugin_version , $info->version, '<') ) {
+
+
+
+            $plugin_slug = plugin_basename( __FILE__ );
+
+            $transient->response[$plugin_slug] = (object) array(
+                'new_version' => $info->version ,
+                'package' => $info->download_url,
+                'slug' => $plugin_slug
+            );
+    }
+
+
+
+    return $transient;
+}
+
+add_filter( 'pre_set_site_transient_update_plugins', 'weimg_check_for_update'  );
+
+
+function weimg_plugins_api_handler($res, $action, $args ) {
+    if ( $action == 'plugin_information' ) {
+
+
+        if ( isset( $args->slug ) && $args->slug == plugin_basename( __FILE__ ) ) {
+
+			$info = json_decode(file_get_contents("https://optimizador.io/pluginupdates.json") ) ;
+
+
+
+            $res = (object) array(
+                'name' => $info->name,
+                'version' => $info->version ,
+                'slug' => $args->slug,
+                'download_link' => $info->download_url ,
+
+                'tested' => $info->tested,
+                'requires' => $info->requires,
+                'last_updated' => $info->last_updated,
+                'homepage' => $info->homepage,
+				'sections' => array( 'description' => $info->sections->description, 'installation' => $info->sections->installation , 'changelog' => $info->sections->changelog ) ,
+                'banners' => array(
+                    'low' => $info->banners->low,
+                    'high' => $info->banners->high
+                ),
+
+                'external' => true
+            );
+            //if ( 1 == 2 ) {
+            //    $res['sections']['changelog'] = "Changelog";
+            //}
+		    //return apply_filters( 'plugins_api_result', $res, $action, $args );
+            return $res;
+			//return false;
+        }
+    }
+    return false;
+}
+
+
+add_filter( 'plugins_api', 'weimg_plugins_api_handler' , 10, 3 );

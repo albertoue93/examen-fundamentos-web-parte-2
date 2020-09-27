@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /**
  * Encodes the given data into a query string format
  * @param $data - array of string elements to be encoded
@@ -235,7 +237,7 @@ function wppb_recaptcha_check_answer ( $privkey, $remoteip, $response ){
 /* the function to display error message on the registration page */
 function wppb_validate_captcha_response( $publickey, $privatekey ){
     if (isset($_POST['g-recaptcha-response'])){
-        $recaptcha_response_field = $_POST['g-recaptcha-response'];
+        $recaptcha_response_field = sanitize_textarea_field( $_POST['g-recaptcha-response'] );
     }
     else {
         $recaptcha_response_field = '';
@@ -356,7 +358,7 @@ add_filter('wppb_recover_password_generate_password_input','wppb_display_recaptc
 /*  Function that changes the messageNo from the Recover Password form  */
 function wppb_recaptcha_change_recover_password_message_no($messageNo) {
 
-        if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'recover_password') {
+        if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'recover_password') {
             $field = wppb_get_recaptcha_field();
             if (!empty($field)) {
 
@@ -402,7 +404,7 @@ add_filter('wppb_recover_password_displayed_message1', 'wppb_recaptcha_recover_p
     so that we can change the message displayed with the wppb_recover_password_displayed_message1 filter  */
 function wppb_recaptcha_recover_password_sent_message_1($message) {
 
-        if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'recover_password') {
+        if (isset($_REQUEST['action']) && $_REQUEST['action'] === 'recover_password') {
             $field = wppb_get_recaptcha_field();
 
             if (!empty($field)) {
@@ -555,7 +557,7 @@ add_action('lostpassword_form','wppb_display_recaptcha_default_wp_recover_passwo
 function wppb_verify_recaptcha_default_wp_recover_password(){
 
     // If field 'username or email' is empty - return
-    if( isset( $_REQUEST['user_login'] ) && "" == $_REQUEST['user_login'] )
+    if( isset( $_REQUEST['user_login'] ) && "" === $_REQUEST['user_login'] )
         return;
 
     $field = wppb_get_recaptcha_field();
@@ -564,7 +566,7 @@ function wppb_verify_recaptcha_default_wp_recover_password(){
         if (!isset($wppb_recaptcha_response)) $wppb_recaptcha_response = wppb_validate_captcha_response( trim( $field['public-key'] ), trim( $field['private-key'] ) );
 
     // If reCAPTCHA not entered or incorrect reCAPTCHA answer
-        if ( isset( $_REQUEST['g-recaptcha-response'] ) && ( ( "" ==  $_REQUEST['g-recaptcha-response'] )  || ( $wppb_recaptcha_response == false ) ) ) {
+        if ( isset( $_REQUEST['g-recaptcha-response'] ) && ( ( "" ===  $_REQUEST['g-recaptcha-response'] )  || ( $wppb_recaptcha_response == false ) ) ) {
             wp_die( __('Please enter a (valid) reCAPTCHA value','profile-builder') . '<br />' . __( "Click the BACK button on your browser, and try again.", 'profile-builder' ) ) ;
         }
     }
@@ -612,7 +614,7 @@ function wppb_verify_recaptcha_default_wp_register( $errors ){
         if (!isset($wppb_recaptcha_response)) $wppb_recaptcha_response = wppb_validate_captcha_response( trim( $field['public-key'] ), trim( $field['private-key'] ) );
 
         // If reCAPTCHA not entered or incorrect reCAPTCHA answer
-        if ( isset( $_REQUEST['g-recaptcha-response'] ) && ( ( "" ==  $_REQUEST['g-recaptcha-response'] )  || ( $wppb_recaptcha_response == false ) ) ) {
+        if ( isset( $_REQUEST['g-recaptcha-response'] ) && ( ( "" ===  $_REQUEST['g-recaptcha-response'] )  || ( $wppb_recaptcha_response == false ) ) ) {
             $errors->add( 'wppb_recaptcha_error', __('Please enter a (valid) reCAPTCHA value','profile-builder') );
         }
     }

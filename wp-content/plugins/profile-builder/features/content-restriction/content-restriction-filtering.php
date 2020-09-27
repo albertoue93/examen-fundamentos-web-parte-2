@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /* Hijack the content when restrictions are set on a single post */
 function wppb_content_restriction_filter_content( $content, $post = null ) {

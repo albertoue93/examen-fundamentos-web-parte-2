@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 // Define the default values.
 define( 'WPPB_DEFAULTS_MAP_LAT', 48 );
 define( 'WPPB_DEFAULTS_MAP_LNG', 12 );

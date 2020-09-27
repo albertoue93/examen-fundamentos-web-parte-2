@@ -62,8 +62,8 @@ $site_domain = $_SERVER['HTTP_HOST'] ;
     <div class="bootstrap container-fluid my-5 bg-white">
     <div class="row  mx-4 my-4">
           
-          <div class="col-6 col-md-1 px-0 my-4 d-none d-none d-lg-block" style="min-width: 160px;" >
-              <img src="<?php echo plugin_dir_url( __FILE__ ) . 'assets/io-logo-v2.jpg'; ?>" class="img-fluid" style="height:510px; width:auto; min-width: 160px; "/>
+          <div class="col-6 col-md-1 px-0 my-4 d-none d-none d-lg-block" style="min-width: 190px;" >
+              <img src="<?php echo plugin_dir_url( __FILE__ ) . 'assets/io-logo-v2.jpg'; ?>" class="img-fluid" style="height:510px; width:auto; min-width: 190px; "/>
           </div>
           
           <div class="col-10 col-md-8 mx-4 my-4">
@@ -957,7 +957,7 @@ if ( isset($_POST["Submit"] ) && isset( $_POST["weautoptimize"] ) ){
             <div class="clear">
                 <div class="alert">
                 <br><br>
-                <p class="h5 alert alert-info" role="alert">Si tienes <a href="https://optimizador.io/sugerencias-o-dudas/" target="_blank">Sugerencias o dudas</a> puedes ponerte en contacto con nosotros desde este <a href="https://optimizador.io/sugerencias-o-dudas/" target="_blank">formulario</a>.</p>
+                <p class="h5 alert alert-info" role="alert">Si tienes Sugerencias o dudas puedes ponerte en contacto con nosotros desde nuestro <a href="https://optimizador.io/sugerencias-o-dudas/" target="_blank">formulario de sugerencias</a>.</p>
                 </div>
             </div>
 
@@ -1014,7 +1014,7 @@ if ( isset($_POST["Submit"] ) && isset( $_POST["weautoptimize"] ) ){
                 	<p >
                 		<ol class="optimizadoriofaq" style="font-size:1.2em;" >
                 			<li><b>He instalado el plugin y no veo donde puedo optimizar mis imágenes</b> <br />
-                				Las imágenes se pueden optimizar de forma manual desde la <a href="upload.php?mode=list" >Biblioteca de medios</a>. Ten en cuenta que las opciones de optimización solamente aparecen en el modo Lista de la biblioteca de medios. Si pulsas en <a href="upload.php?mode=list" >este mismo enlace</a> puedes acceder
+                				Las imágenes se pueden optimizar de forma manual desde la <b>Biblioteca de medios</b>. Ten en cuenta que las opciones de optimización solamente aparecen en el <b>modo Lista</b> de la biblioteca de medios. Si pulsas en <a href="upload.php?mode=list" >este mismo enlace</a> puedes acceder al modo lista de la biblioteca.
                 			</li>
                 			<li>
                 			 <b>Las imágenes se quedan en modo Planificado, pero nunca se optimizan</b> <br />
@@ -1030,7 +1030,7 @@ if ( isset($_POST["Submit"] ) && isset( $_POST["weautoptimize"] ) ){
                 			</li>
                 			<li>
                 			<b>Si yo quiero optimizar las imágenes que ya he subido a lo largo de los meses, donde está el botón de optimizar todas las imágenes o similar</b> <br />
-                			En este momento no hay aun un botón de "Optimizar todo", pero se puede hacer fácilmente desde la <a href="upload.php?mode=list" >Biblioteca de medios</a>, Seleccionando todas las imágenes y pulsando en las acciones en lote "Optimizar seleccionados".
+                			Puedes usar el botón azul de "OPTIMIZAR TODAS LAS IMÁGENES" que hay en la pestaña de Inicio, justo debajo del cuadro de estadísticas principal.
                 			</li>
                             <li>
                                 <b>Puedes usar la misma dirección de email para validar el api key en tantos WordPresses como administres.</b>
@@ -1041,7 +1041,7 @@ if ( isset($_POST["Submit"] ) && isset( $_POST["weautoptimize"] ) ){
         	<br />
         	<div class=" col-12 alert alert-info ">
             	<p class="h5">
-            	Si tienes <a href="https://optimizador.io/sugerencias-o-dudas/" target="_blank">Sugerencias o dudas</a> puedes ponerte en contacto con nosotros desde este <a href="https://optimizador.io/sugerencias-o-dudas/" target="_blank">formulario</a>.
+            	Si tienes Sugerencias o dudas puedes ponerte en contacto con nosotros desde nuestro <a href="https://optimizador.io/sugerencias-o-dudas/" target="_blank">formulario de sugerencias</a>.
             	</p>
         	</div>
         </div>

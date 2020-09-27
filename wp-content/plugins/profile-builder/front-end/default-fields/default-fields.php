@@ -1,4 +1,6 @@
-<?php 
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 // include individual modules
 function wppb_include_default_fields_files() {
     $wppb_generalSettings = get_option('wppb_general_settings', 'not_found' );

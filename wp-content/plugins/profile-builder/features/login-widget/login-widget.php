@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 function wppb_register_login_widget() {
 	register_widget( 'wppb_login_widget' );
 }

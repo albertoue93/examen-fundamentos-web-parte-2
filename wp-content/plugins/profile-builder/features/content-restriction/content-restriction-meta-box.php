@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 function wppb_content_restriction_initialize_meta_box() {
 
@@ -159,7 +160,7 @@ function wppb_content_restriction_save_data( $post_id ) {
         update_post_meta( $post_id, 'wppb-content-restrict-type', sanitize_text_field( $_POST['wppb-content-restrict-type'] ) );
     }
 
-    if( isset( $_POST['wppb-content-restrict-user-status'] ) && $_POST['wppb-content-restrict-user-status'] == 'loggedin' ) {
+    if( isset( $_POST['wppb-content-restrict-user-status'] ) && $_POST['wppb-content-restrict-user-status'] === 'loggedin' ) {
         delete_post_meta( $post_id, 'wppb-content-restrict-user-role' );
 
         if( isset( $_POST['wppb-content-restrict-user-role'] ) ) {

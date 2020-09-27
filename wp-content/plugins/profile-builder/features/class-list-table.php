@@ -396,7 +396,7 @@ class PB_WP_List_Table {
 		if ( !$month_count || ( 1 == $month_count && 0 == $months[0]->month ) )
 			return;
 
-		$m = isset( $_GET['m'] ) ? (int) $_GET['m'] : 0;
+		$m = isset( $_GET['m'] ) ? (int) sanitize_text_field( $_GET['m'] ) : 0;
 ?>
 		<select name='m'>
 			<option<?php selected( $m, 0 ); ?> value='0'><?php _e( 'Show all dates' ); ?></option>
@@ -699,11 +699,11 @@ class PB_WP_List_Table {
 		$current_url = remove_query_arg( 'paged', $current_url );
 
 		if ( isset( $_GET['orderby'] ) )
-			$current_orderby = $_GET['orderby'];
+			$current_orderby = sanitize_sql_orderby( $_GET['orderby'] );
 		else
 			$current_orderby = '';
 
-		if ( isset( $_GET['order'] ) && 'desc' == $_GET['order'] )
+		if ( isset( $_GET['order'] ) && 'desc' == sanitize_text_field( $_GET['order'] ) )
 			$current_order = 'desc';
 		else
 			$current_order = 'asc';

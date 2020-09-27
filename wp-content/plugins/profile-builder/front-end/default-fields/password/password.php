@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /* handle field output */
 function wppb_password_handler( $output, $form_location, $field, $user_id, $field_check_errors, $request_data ){
 

@@ -1273,7 +1273,7 @@ class Wordpress_Creation_Kit_PB{
         /* mark the fields */
         if( isset( $_GET['wckerrorfields'] ) && !empty( $_GET['wckerrorfields'] ) ){
             echo '<script type="text/javascript">';
-            $field_names = explode( ',', urldecode( base64_decode( $_GET['wckerrorfields'] ) ) );
+            $field_names = explode( ',', sanitize_text_field( urldecode( base64_decode( $_GET['wckerrorfields'] ) ) ) );
 			if( !empty( $field_names ) ) {
 				foreach ($field_names as $field_name) {
 					echo "jQuery( '.field-label[for=\"" . esc_js($field_name) . "\"]' ).addClass('error');";

@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * Function that returns an array with the settings tabs(pages) and subtabs(subpages)
  * @return array with the tabs
@@ -53,7 +54,7 @@ function wppb_generate_settings_tabs(){
 		$active_subpage = sanitize_text_field($_GET['page']);
 		echo '<ul class="wppb-subtabs subsubsub">';
 		foreach ($pages['subpages'] as $parent_slug => $subpages) {
-			if (array_key_exists($_GET['page'], $subpages)) {
+			if (array_key_exists( sanitize_text_field( $_GET['page'] ), $subpages)) {
 				foreach ($subpages as $subpage_slug => $subpage_name) {
 					echo '<li><a href="' . admin_url(add_query_arg(array('page' => $subpage_slug), 'admin.php')) . '"  class="nav-sub-tab ' . ($active_subpage == $subpage_slug ? 'current' : '') . '">' . $subpage_name . '</a></li>';
 				}

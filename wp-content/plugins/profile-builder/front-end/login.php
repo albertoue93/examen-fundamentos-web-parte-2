@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 add_action( 'init', 'wppb_process_login' );
 function wppb_process_login(){
 
@@ -27,7 +29,7 @@ function wppb_process_login(){
 	}
 
 	if ( isset( $_REQUEST['redirect_to'] ) ) {
-		$redirect_to = $_REQUEST['redirect_to'];
+		$redirect_to = esc_url( $_REQUEST['redirect_to'] );
 	}
 
 	$user = wp_signon( array(), $secure_cookie );
@@ -40,7 +42,7 @@ function wppb_process_login(){
 		}
 	}
 
-	$requested_redirect_to = isset( $_REQUEST['redirect_to'] ) ? $_REQUEST['redirect_to'] : '';
+	$requested_redirect_to = isset( $_REQUEST['redirect_to'] ) ? esc_url( $_REQUEST['redirect_to'] ) : '';
 	/**
 	 * Filters the login redirect URL.
 	 */
@@ -100,7 +102,7 @@ function wppb_login_form( $args = array() ) {
 	$defaults = array(
 		'echo' => true,
 		// Default 'redirect' value takes the user back to the request URI.
-		'redirect' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+		'redirect' => esc_url( ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ),
 		'form_id' => 'wppb-loginform',
 		'label_username' => __( 'Username or Email Address' ),
 		'label_password' => __( 'Password' ),
@@ -184,7 +186,7 @@ function wppb_change_login_with_email(){
 		if( isset( $_POST['wppb_login'] ) ){
 			global $wpdb, $_POST, $wp_version;
 			// apply filter to allow stripping slashes if necessary
-			$_POST['log'] = apply_filters( 'wppb_before_processing_email_from_forms', $_POST['log'] );
+			$_POST['log'] = apply_filters( 'wppb_before_processing_email_from_forms', sanitize_text_field( $_POST['log'] ) );
 
 			/* since version 4.5 there is in the core the option to login with email so we don't need the bellow code but for backward compatibility we will keep it */
 			if( version_compare( $wp_version, '4.5.0' ) >= 0 && apply_filters( 'wppb_allow_login_with_username_when_is_set_to_email', false ) )
@@ -215,7 +217,7 @@ function wppb_change_login_with_email(){
 				if( is_email( $_POST['log'] ) ) {
 					$username = $wpdb->get_var( $wpdb->prepare( "SELECT user_login FROM $wpdb->users WHERE user_email= %s LIMIT 1", sanitize_email( $_POST['log'] ) ) );
 				} else {
-					$username = $_POST['log'];
+					$username = sanitize_user( $_POST['log'] );
 				}
 
 				if( !empty( $username ) )
@@ -399,13 +401,12 @@ function wppb_front_end_login( $atts ){
 
 		// display our login errors
 		if( isset( $_GET['loginerror'] ) || isset( $_POST['loginerror'] ) ){
-            $loginerror = isset( $_GET['loginerror'] ) ? $_GET['loginerror'] : $_POST['loginerror'];
-            $loginerror = '<p class="wppb-error">'. wp_kses_post( urldecode( base64_decode( $loginerror ) ) ) .'</p><!-- .error -->';
+            $loginerror = '<p class="wppb-error">'. wp_kses_post( urldecode( base64_decode( isset( $_GET['loginerror'] ) ? $_GET['loginerror'] : $_POST['loginerror'] ) ) ) .'</p><!-- .error -->';
             if( isset( $_GET['request_form_location'] ) ){
-                if( $_GET['request_form_location'] == 'widget' && !in_the_loop() ){
+                if( $_GET['request_form_location'] === 'widget' && !in_the_loop() ){
                     $login_form .= $loginerror;
                 }
-                elseif( $_GET['request_form_location'] == 'page' && in_the_loop() ){
+                elseif( $_GET['request_form_location'] === 'page' && in_the_loop() ){
                     $login_form .= $loginerror;
                 }
             }

@@ -326,7 +326,7 @@ class wpp_list_unfonfirmed_email_table extends PB_WP_List_Table {
         }
         else
             $orderby = 'user_login';
-        if( !empty( $_REQUEST['order'] ) && $_REQUEST['order'] == 'desc' )
+        if( !empty( $_REQUEST['order'] ) && $_REQUEST['order'] === 'desc' )
             $order = "DESC";
         else
             $order = 'ASC';
@@ -334,7 +334,7 @@ class wpp_list_unfonfirmed_email_table extends PB_WP_List_Table {
         /* handle the WHERE clause */
         $where = "active = 0";
         if( isset( $_REQUEST['s'] ) && !empty( $_REQUEST['s'] ) ){
-            $where .= " AND ( user_login LIKE '%".sanitize_text_field($_REQUEST['s'])."%' OR user_email LIKE '%".sanitize_text_field($_REQUEST['s'])."%' OR registered LIKE '%".sanitize_text_field($_REQUEST['s'])."%' )";
+            $where .= " AND ( user_login LIKE '%".esc_sql($_REQUEST['s'])."%' OR user_email LIKE '%".esc_sql($_REQUEST['s'])."%' OR registered LIKE '%".esc_sql($_REQUEST['s'])."%' )";
         }
         /* since version 2.0.7 for multisite we add a 'registered_for_blog_id' meta in the registration process
             so we can display only the users registered on that blog. Also for backwards compatibility we display the users that don't have that meta at all */

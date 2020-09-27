@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /**
  * Functions Load
  *
@@ -344,7 +346,7 @@ function wppb_print_cpt_script( $hook ){
         ( $hook == 'profile-builder_page_user-email-customizer') ||
         ( $hook == 'profile-builder_page_profile-builder-content_restriction' ) ||
         ( strpos( $hook, 'profile-builder_page_' ) === 0 ) ||
-        ( $hook == 'edit.php' && ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'wppb-roles-editor' ) ) ||
+        ( $hook == 'edit.php' && ( isset( $_GET['post_type'] ) && $_GET['post_type'] === 'wppb-roles-editor' ) ) ||
 		( $hook == 'admin_page_profile-builder-pms-promo') ||
 		( $hook == 'admin_page_profile-builder-private-website') ) {
 			wp_enqueue_style( 'wppb-back-end-style', WPPB_PLUGIN_URL . 'assets/css/style-back-end.css', false, PROFILE_BUILDER_VERSION );
@@ -476,6 +478,84 @@ function wppb_changeDefaultAvatar( $avatar, $id_or_email, $size, $default, $alt 
 	return $avatar;
 }
 add_filter( 'get_avatar', 'wppb_changeDefaultAvatar', 21, 5 );
+
+
+//the function used to overwrite the avatar across the wp installation
+function wppb_changeDefaultAvatarUrl( $url, $id_or_email, $args ){
+	/* Get user info. */
+	if(is_object($id_or_email)){
+		$my_user_id = $id_or_email->user_id;
+
+		if ($id_or_email instanceof WP_User){
+			$my_user_id = $id_or_email->ID;
+		}
+
+	}elseif(is_numeric($id_or_email)){
+		$my_user_id = $id_or_email;
+
+	}elseif(!is_integer($id_or_email)){
+		$user_info = get_user_by( 'email', $id_or_email );
+		$my_user_id = ( is_object( $user_info ) ? $user_info->ID : '' );
+	}else
+		$my_user_id = $id_or_email;
+
+	$wppb_manage_fields = get_option( 'wppb_manage_fields', 'not_found' );
+	if ( $wppb_manage_fields != 'not_found' ){
+		foreach( $wppb_manage_fields as $value ){
+			if ( $value['field'] == 'Avatar'){
+				$avatar_field = $value;
+			}
+		}
+	}
+
+	/* for multisite if we don't have an avatar try to get it from the main blog */
+	if( is_multisite() && empty( $avatar_field ) ){
+		switch_to_blog(1);
+		$wppb_switched_blog = true;
+		$wppb_manage_fields = get_option( 'wppb_manage_fields', 'not_found' );
+		if ( $wppb_manage_fields != 'not_found' ){
+			foreach( $wppb_manage_fields as $value ){
+				if ( $value['field'] == 'Avatar'){
+					$avatar_field = $value;
+				}
+			}
+		}
+	}
+
+	$avatar_url = $url;
+
+	if ( !empty( $avatar_field ) ){
+
+		$customUserAvatar = get_user_meta( $my_user_id, Wordpress_Creation_Kit_PB::wck_generate_slug( $avatar_field['meta-name'] ), true );
+		if( !empty( $customUserAvatar ) ){
+			if( is_numeric( $customUserAvatar ) ){
+				$img_attr = wp_get_attachment_image_src( $customUserAvatar, 'wppb-avatar-size-'.$args['size'] );
+				if( $img_attr[3] === false ){
+					$img_attr = wp_get_attachment_image_src( $customUserAvatar, 'thumbnail' );
+					$avatar_url = $img_attr[0];
+				}
+				else
+					$avatar_url = $img_attr[0];;
+			}
+			else {
+				$customUserAvatar = get_user_meta($my_user_id, 'resized_avatar_' . $avatar_field['id'], true);
+				$customUserAvatarRelativePath = get_user_meta($my_user_id, 'resized_avatar_' . $avatar_field['id'] . '_relative_path', true);
+
+				if ((($customUserAvatar != '') || ($customUserAvatar != null)) && file_exists($customUserAvatarRelativePath)) {
+					$avatar_url = $customUserAvatar;
+				}
+			}
+		}
+
+	}
+
+	/* if we switched the blog restore it */
+	if( is_multisite() && !empty( $wppb_switched_blog ) && $wppb_switched_blog )
+		restore_current_blog();
+
+	return $avatar_url;
+}
+add_filter( 'get_avatar_url', 'wppb_changeDefaultAvatarUrl', 21, 5 );
 
 
 //the function used to resize the avatar image; the new function uses a user ID as parameter to make pages load faster
@@ -827,7 +907,7 @@ function wppb_phone_field_error( $field_title = '' ) {
 function wppb_get_query_var( $varname ){
     //if we want the userlisting on front page ( is_front_page() ) apparently the way we register query vars does not work so we will just use a simple GET var
     if($varname === 'username' && !get_query_var( $varname ) && isset($_GET['wppb_username'])){
-        return apply_filters( 'wppb_get_query_var_'.$varname, $_GET['wppb_username'] );
+        return apply_filters( 'wppb_get_query_var_'.$varname, sanitize_user( $_GET['wppb_username'] ) );
     }
 
     return apply_filters( 'wppb_get_query_var_'.$varname, get_query_var( $varname ) );

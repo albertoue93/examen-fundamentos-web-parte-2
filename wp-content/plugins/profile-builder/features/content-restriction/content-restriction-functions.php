@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /* Verifies whether the current post or the post with the provided id has any restrictions in place */
 function wppb_content_restriction_is_post_restricted( $post_id = null ) {

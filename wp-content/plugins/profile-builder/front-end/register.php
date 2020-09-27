@@ -1,17 +1,17 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /**
  * Function that changes the auto generated password with the one selected by the user.
  */
 function wppb_signup_password_random_password_filter( $password ) {
 	global $wpdb;
 
-	$key = ( !empty( $_GET['key'] ) ? $_GET['key'] : null );
-	$key = ( !empty( $_POST['key'] ) ? $_POST['key'] : $key );
-	if( !empty( $key ) )
-		$key = sanitize_text_field( $key );
+	$key = ( !empty( $_GET['key'] ) ? sanitize_text_field( $_GET['key'] ) : null );
+	$key = ( !empty( $_POST['key'] ) ? sanitize_text_field( $_POST['key'] ) : $key );
 
-	if ( !empty( $_POST['user_pass'] ) )
-		$password = $_POST['user_pass'];
+	if ( !empty( $_POST['user_pass'] ) )// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+		$password = $_POST['user_pass'];// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
 	elseif ( !is_null( $key ) ) {
 		$signup = ( is_multisite() ? $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . $wpdb->signups . " WHERE activation_key = %s", $key ) ) : $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . $wpdb->base_prefix . "signups WHERE activation_key = %s", $key ) ) );
 		
@@ -198,8 +198,7 @@ function wppb_default_registration_redirect( $user_id ) {
     $user_data = get_userdata( $user_id );
 
     // CHECK FOR REDIRECT
-    $_POST['redirect_to'] = wppb_get_redirect_url( 'normal', 'after_registration', $_POST['redirect_to'], $user_data );
-    $_POST['redirect_to'] = apply_filters( 'wppb_after_registration_redirect_url', $_POST['redirect_to'] );
+    $_POST['redirect_to'] = apply_filters( 'wppb_after_registration_redirect_url', wppb_get_redirect_url( 'normal', 'after_registration', esc_url( $_POST['redirect_to'] ), $user_data ) );
 
 }
 add_action( 'register_new_user', 'wppb_default_registration_redirect' );

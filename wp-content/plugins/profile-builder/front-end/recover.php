@@ -1,4 +1,6 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /**
  * Function that checks if a user is approved before reseting the password
  *
@@ -330,7 +332,7 @@ function wppb_front_end_password_recovery(){
         }
     }
     // If the user used the correct key-code, update his/her password
-    elseif ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action2'] ) && $_POST['action2'] == 'recover_password2' && wp_verify_nonce( $_POST['password_recovery_nonce_field2'], 'verify_true_password_recovery2_'.absint( $_POST['userData'] ) ) ) {
+    elseif ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action2'] ) && $_POST['action2'] === 'recover_password2' && wp_verify_nonce( $_POST['password_recovery_nonce_field2'], 'verify_true_password_recovery2_'.absint( $_POST['userData'] ) ) ) {
 
         $password_change_message = '';
 
@@ -360,7 +362,7 @@ function wppb_front_end_password_recovery(){
 
 
                 $userID = absint( $_POST['userData'] );
-                $new_pass = $_POST['passw1'];
+                $new_pass = $_POST['passw1']; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
 
                 //update the new password and delete the key
                 do_action( 'wppb_password_reset', $userID, $new_pass );

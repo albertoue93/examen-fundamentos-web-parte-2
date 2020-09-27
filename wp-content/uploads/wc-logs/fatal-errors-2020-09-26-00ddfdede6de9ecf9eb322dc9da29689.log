@@ -1,0 +1,39 @@
+2020-09-26T04:01:01+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on bool in C:\xampp\htdocs\wordpress\wp-content\plugins\woolementor\widgets\product-categories\product-categories.php:393
+Stack trace:
+#0 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\widget-base.php(530): codexpert\Woolementor\Product_Categories->render()
+#1 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\core\base\document.php(230): Elementor\Widget_Base->render_content()
+#2 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\managers\widgets.php(323): Elementor\Core\Base\Document->render_element(Array)
+#3 [internal function]: Elementor\Widgets_Manager->ajax_render_widget(Array, Object(Elementor\Core\Common\Modules\Ajax\Module))
+#4 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\core\common\modules\ajax\module.php(171): call_user_func(Array, Array, Object(Elementor\Core\Common\Modules\Ajax\Module))
+#5 C:\xampp\htdocs\wordpress\wp-includes\class-wp-hook.php(287): Elementor\Core\Common\Modules\Ajax\Module->hand en C:\xampp\htdocs\wordpress\wp-content\plugins\woolementor\widgets\product-categories\product-categories.php en la línea 393
+
+2020-09-26T04:01:10+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on bool in C:\xampp\htdocs\wordpress\wp-content\plugins\woolementor\widgets\product-categories\product-categories.php:393
+Stack trace:
+#0 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\widget-base.php(530): codexpert\Woolementor\Product_Categories->render()
+#1 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\widget-base.php(583): Elementor\Widget_Base->render_content()
+#2 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\db.php(195): Elementor\Widget_Base->render_plain_content()
+#3 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\db.php(201): Elementor\DB->render_element_plain_content(Array)
+#4 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\db.php(201): Elementor\DB->render_element_plain_content(Array)
+#5 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\db.php(534): Elementor\DB->render_element_plain_content(Array)
+#6 C:\xampp\htdocs\wordpress\wp-content\plu en C:\xampp\htdocs\wordpress\wp-content\plugins\woolementor\widgets\product-categories\product-categories.php en la línea 393
+
+2020-09-26T04:01:14+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on bool in C:\xampp\htdocs\wordpress\wp-content\plugins\woolementor\widgets\product-categories\product-categories.php:393
+Stack trace:
+#0 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\widget-base.php(530): codexpert\Woolementor\Product_Categories->render()
+#1 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\widget-base.php(660): Elementor\Widget_Base->render_content()
+#2 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\element-base.php(644): Elementor\Widget_Base->_print_content()
+#3 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\element-base.php(864): Elementor\Element_Base->print_element()
+#4 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\element-base.php(644): Elementor\Element_Base->_print_content()
+#5 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\element-base.php(864): Elementor\Element_Base->print_element()
+#6 C:\xampp\htdocs en C:\xampp\htdocs\wordpress\wp-content\plugins\woolementor\widgets\product-categories\product-categories.php en la línea 393
+
+2020-09-26T04:01:23+00:00 CRITICAL Uncaught Error: Call to a member function get_id() on bool in C:\xampp\htdocs\wordpress\wp-content\plugins\woolementor\widgets\product-categories\product-categories.php:393
+Stack trace:
+#0 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\widget-base.php(530): codexpert\Woolementor\Product_Categories->render()
+#1 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\widget-base.php(660): Elementor\Widget_Base->render_content()
+#2 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\element-base.php(644): Elementor\Widget_Base->_print_content()
+#3 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\element-base.php(864): Elementor\Element_Base->print_element()
+#4 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\element-base.php(644): Elementor\Element_Base->_print_content()
+#5 C:\xampp\htdocs\wordpress\wp-content\plugins\elementor\includes\base\element-base.php(864): Elementor\Element_Base->print_element()
+#6 C:\xampp\htdocs en C:\xampp\htdocs\wordpress\wp-content\plugins\woolementor\widgets\product-categories\product-categories.php en la línea 393
+
